@@ -6,6 +6,16 @@ notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
+// notes.get('/:id', (req, res) => {
+//     const requestedNote = req.params.id;
+
+//     for (let i = 0; i < data.length; i++) {
+//         if (requestedNote === data[i].id) {
+//             return res.json(data[i]);
+//         }
+//     }
+// });
+
 notes.post('/', (req, res) => {
     console.log(req.body);
 
@@ -15,7 +25,7 @@ notes.post('/', (req, res) => {
         const newNote = {
             title,
             text,
-            tip_id: uuid(),
+            id: uuid(),
         };
 
         readAndAppend(newNote, './db/db.json');
