@@ -1,6 +1,11 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Test Title",
+        "text": "Test text"
+    },
+    {
+        "title": "App not broken!",
+        "text": "The app is finally not broken!\n",
+        "tip_id": "68c5"
     }
 ]
