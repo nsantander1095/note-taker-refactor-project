@@ -1,20 +1,18 @@
 const notes = require('express').Router();
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
 notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-// notes.get('/:id', (req, res) => {
-//     const requestedNote = req.params.id;
-
-//     for (let i = 0; i < data.length; i++) {
-//         if (requestedNote === data[i].id) {
-//             return res.json(data[i]);
-//         }
-//     }
-// });
+notes.delete('/:id', async (req, res) => {
+    const deletedNote = req.params.id;
+    let readFile = await readFromFile('./db/db.json');
+    readFile = JSON.parse(readFile);
+    readFile = readFile.filter(others => others.id !== deletedNote);
+    res.json('Note deleted');
+});
 
 notes.post('/', (req, res) => {
     console.log(req.body);
