@@ -11,6 +11,7 @@ notes.delete('/:id', async (req, res) => {
     let readFile = await readFromFile('./db/db.json');
     readFile = JSON.parse(readFile);
     readFile = readFile.filter(others => others.id !== deletedNote);
+    writeToFile('./db/db.json', readFile);
     res.json('Note deleted');
 });
 
