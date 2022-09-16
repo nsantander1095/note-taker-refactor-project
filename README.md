@@ -31,3 +31,7 @@ Upon cloning the repository, you will need to run some commands:
 ## Visuals
 
 To see a full walkthorugh of how to download dependencies and to use the app go to this [link.]()
+
+Here is a mockup of the appliocation's appearance and functionality:
+
+![App screenshot]()
